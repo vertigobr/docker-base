@@ -30,7 +30,7 @@ open a bash shell to play.
 
 Show CentOS version:
 
-    ./runbash.sh cat /etc/redhat=release
+    ./runbash.sh cat /etc/redhat-release
     CentOS Linux release 7.0.1406 (Core)
 
 Show files (ls):
