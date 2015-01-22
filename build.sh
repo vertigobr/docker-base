@@ -1,1 +1,2 @@
-docker build -t vertigobr/docker-base .
+#!/bin/bash
+docker build -t vertigo/docker-base .
