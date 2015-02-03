@@ -3,7 +3,7 @@
 
 FROM centos:latest
 
-MAINTAINER Andre Fernandesa <andre@vertigo.com.br>
+MAINTAINER Andre Fernandes <andre@vertigo.com.br>
 
 RUN yum update -y && yum install net-tools tar wget unzip -y && yum clean all && \
     wget http://dl.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm -q && \
