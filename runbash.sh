@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 ENVBASH=$1
 ENVBASH=${ENVBASH:-"bash"}
 #echo "ENVBASH=$ENVBASH"

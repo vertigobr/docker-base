@@ -8,7 +8,7 @@
 # uncomments the "baseurl" entry and replaces
 # "mirror.centos.org" by "registry.vtg/repos"
 #
-#sed "s/^enabled.*/enabled=0/" -i /etc/yum/pluginconf.d/fastestmirror.conf 
-#sed "s/^mirrorlist/#mirrorlist/g" -i /etc/yum.repos.d/CentOS-Base.repo
-#sed "s/^#baseurl/baseurl/g" -i /etc/yum.repos.d/CentOS-Base.repo
-#sed "s/mirror\.centos\.org/registry\.vtg\/repos/g" -i /etc/yum.repos.d/CentOS-Base.repo
+sed "s/^enabled.*/enabled=0/" -i /etc/yum/pluginconf.d/fastestmirror.conf 
+sed "s/^mirrorlist/#mirrorlist/g" -i /etc/yum.repos.d/CentOS-Base.repo
+sed "s/^#baseurl/baseurl/g" -i /etc/yum.repos.d/CentOS-Base.repo
+sed "s/mirror\.centos\.org/registry\.vtg\/repos/g" -i /etc/yum.repos.d/CentOS-Base.repo
