@@ -10,7 +10,8 @@
 # this script assumes that the "epel" repo is the first
 # entry at "/etc/yum.repos.d/epel.repo"
 #
-#sed "s/^mirrorlist/#mirrorlist/g" -i /etc/yum.repos.d/epel.repo
+echo "changing yum epel repo..."
+sed "s/^mirrorlist/#mirrorlist/g" -i /etc/yum.repos.d/epel.repo
 # using sed to replace first ocurrence only
-#sed "0,/^#baseurl/s//baseurl/" -i /etc/yum.repos.d/epel.repo
-#sed "0,/download\.fedoraproject\.org\/pub\/epel\/7\/$basearch/s//registry\.vtg\/repos\/epel\/7\//" -i /etc/yum.repos.d/epel.repo
+sed "0,/^#baseurl/s//baseurl/" -i /etc/yum.repos.d/epel.repo
+sed "0,/download\.fedoraproject\.org\/pub\/epel\/7\/$basearch/s//registry\.vtg\/repos\/epel\/7\//" -i /etc/yum.repos.d/epel.repo
