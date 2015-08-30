@@ -7,11 +7,11 @@ MAINTAINER Andre Fernandes <andre@vertigo.com.br>
 
 ADD src/* /opt/
 
-RUN chmod +x /opt/*.sh && \
-    /opt/setbaserepo.sh && \
+RUN echo "Building..." && \
+    sh /opt/setbaserepo.sh && \
     yum update -y && \
     yum install net-tools iputils tar wget unzip epel-release -y && \
-    /opt/setepelrepo.sh && \
+    sh /opt/setepelrepo.sh && \
     yum -y install pwgen && \
     yum clean all
 
