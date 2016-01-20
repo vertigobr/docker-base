@@ -1,13 +1,18 @@
 # Base CentOS 7 with a few perks
-# Includes epel repo for local build
+# Includes epel repo
 
 FROM centos:latest
 
 MAINTAINER Andre Fernandes <andre@vertigo.com.br>
 
-RUN yum update -y && \
-    yum install net-tools tar wget unzip epel-release -y && \
+ADD src/* /opt/
+
+RUN echo "Building..." && \
+    sh /opt/setbaserepo.sh && \
+    yum update -y && \
+    yum install net-tools iputils tar wget unzip epel-release -y && \
+    sh /opt/setepelrepo.sh && \
+    yum -y install pwgen && \
     yum clean all
 
 # RUN yum -y install pwgen && yum clean all
-

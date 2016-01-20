@@ -31,11 +31,10 @@ open a bash shell to play.
 Show CentOS version:
 
     ./runbash.sh cat /etc/redhat-release
-    CentOS Linux release 7.0.1406 (Core)
+    CentOS Linux release 7.1.1503 (Core)
 
 Show files (ls):
 
     ./runbash.sh ls -l /opt/
     total 0 
-
 
