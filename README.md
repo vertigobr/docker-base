@@ -1,4 +1,8 @@
 # docker-base
+
+[![Build Status](http://drone.vertigo.com.br/api/badges/docker/docker-base/status.svg)](http://drone.vertigo.com.br/docker/docker-base)
+[![](https://badge.imagelayers.io/vertigo/docker-base:latest.svg)](https://imagelayers.io/?images=vertigo/docker-base:latest 'Get your own badge on imagelayers.io')
+
 Docker base image for Vertigo images (centos-based, at least for now)
 
 This is a base CentOS 7 image with a few perks. This is based on
@@ -36,5 +40,4 @@ Show CentOS version:
 Show files (ls):
 
     ./runbash.sh ls -l /opt/
-    total 0 
-
+    total 0
