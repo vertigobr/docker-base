@@ -23,7 +23,7 @@ Most images we find at the public Docker Hub are Ubuntu-based.
 Nothing against Ubuntu, but Redhat customers fell more at home
 with CentOS.
 
-### Useful scripts
+### Useful scripts 
 
 * **build.sh** : builds the image locally (docker build)
 * **runbash.sh** : convenient way to run commands on a new
