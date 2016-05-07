@@ -1,2 +1,4 @@
 #!/bin/sh
-docker build -t vertigo/docker-base .
+docker build \
+    --build-arg=["BASEREPO=$BASEREPO","EPELREPO=$EPELREPO"] \
+    -t vertigo/docker-base .
