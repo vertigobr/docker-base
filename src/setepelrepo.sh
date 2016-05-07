@@ -1,21 +1,40 @@
 #!/bin/bash
 #
-# uncomment these lines to use a local mirror
-# this sample uses a mirror at "registry.vtg/repos"
-# 
-# the sed commands below comment out the "mirrorlist" entry,
-# uncomments the first "baseurl" entry and replaces
-# the first "mirror.centos.org" by "registry.vtg/repos"
+# This script allows a build argument to change the
+# EPEL yum repo used for "yum install"
+# commands.
 #
-# this script assumes that the "epel" repo is the first
-# entry at "/etc/yum.repos.d/epel.repo"
+# This allows local builds to point to local yum mirrors,
+# while the Docker Hub automated build will use the default ones.
 #
-# detects at "docker build" time if local repo is available
-CODE=$(curl -I http://registry.vtg/repos/epel/7/x86_64/repodata/repomd.xml 2>/dev/null | head -n 1 | cut -d$' ' -f2)
-if [ "$CODE" == "200" ]; then
-    echo "changing yum epel repo..."
+# Setting EPELREPO for any non-null/empty value will:
+# . comment all "mirrorlist" entries in epel.repo
+# . enable the "baseurl" entry with the value $EPELREPO
+#
+# Yeah, kinda rude, but it works. A special value "local"
+# works as the value "http://registry.vtg/repos/epel/7/", our local EPEL mirror at home.
+# Also another special value "default" restores epel.repo original file
+# gained from "epel-release" package.
+#
+
+if [ "$EPELREPO" == "local" ]; then
+    EPELREPO="http://registry.vtg/repos/epel/7/x86_64"
+fi
+if [ "$EPELREPO" == "default" ]; then
+    cp /etc/yum.repos.d/epel.repo.original /etc/yum.repos.d/epel.repo
+elif [[ ! -z $EPELREPO ]]; then
+    echo "Using EPELREPO $EPELREPO"
+    REPOMD="http://$EPELREPO/repodata/repomd.xml"
+    echo "Testing $REPOMD..."
+    CODE=$(curl -I $REPOMD 2>/dev/null | head -n 1 | cut -d$' ' -f2)
+    if [ "$CODE" == "200" ]; then
+        echo "...OK!"
+    else
+        >&2 echo "Error $CODE, repo can be broken/unreachable/etc., will proceed anyway. Pray."
+    fi
+    /usr/bin/cp -f /etc/yum.repos.d/epel.repo.original /etc/yum.repos.d/epel.repo
+    REPO_ESC=$(sed 's/[\/\.]/\\&/g' <<<"$EPELREPO")
+    echo "changing yum epel repos, escape EPELREPO=$REPO_ESC..."
     sed "s/^mirrorlist/#mirrorlist/g" -i /etc/yum.repos.d/epel.repo
-    # using sed to replace first ocurrence only
-    sed "0,/^#baseurl/s//baseurl/" -i /etc/yum.repos.d/epel.repo
-    sed "0,/download\.fedoraproject\.org\/pub\/epel\/7\/$basearch/s//registry\.vtg\/repos\/epel\/7\//" -i /etc/yum.repos.d/epel.repo
+    sed "0,/^#baseurl.*/s//baseurl=$REPO_ESC/g" -i /etc/yum.repos.d/epel.repo
 fi
