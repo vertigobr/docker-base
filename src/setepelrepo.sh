@@ -24,7 +24,7 @@ if [ "$EPELREPO" == "default" ]; then
     cp /etc/yum.repos.d/epel.repo.original /etc/yum.repos.d/epel.repo
 elif [[ ! -z $EPELREPO ]]; then
     echo "Using EPELREPO $EPELREPO"
-    REPOMD="http://$EPELREPO/repodata/repomd.xml"
+    REPOMD="$EPELREPO/repodata/repomd.xml"
     echo "Testing $REPOMD..."
     CODE=$(curl -I $REPOMD 2>/dev/null | head -n 1 | cut -d$' ' -f2)
     if [ "$CODE" == "200" ]; then
