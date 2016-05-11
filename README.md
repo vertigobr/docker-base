@@ -24,7 +24,7 @@ Most images we find at the public Docker Hub are Ubuntu or Alpine-based.
 Nothing against them, but Redhat customers feel more at home
 with CentOS.
 
-### Useful scripts 
+### Useful scripts
 
 * **build.sh** : builds the image locally (docker build)
 * **runbash.sh** : convenient way to run commands on a new
@@ -33,18 +33,9 @@ open a bash shell to play.
 
 ### Build arguments
 
-You can set the variables BASEREPO and EPELREPO before running build.sh in order to choose a specific "yum mirror" from your local network. Running local builds becomes a lot faster with a mirror around.
+If you want to build this image yourself you can set the variables BASEREPO and EPELREPO before running `build.sh` in order to choose a specific "yum mirror" from your local network. Running local builds becomes a lot faster with a mirror around.
 
-Setting BASEREPO for any non-null/empty value will:
-
-- disable fastestmirror plugin
-- comment all "mirrorlist" entries in CentOS-Base.repo
-- enable "baseurl" entries replacing "mirror.centos.org" by BASEREPO in CentOS-Base.repo
-
-Setting EPELREPO for any non-null/empty value will:
-
-- comment all "mirrorlist" entries in epel.repo
-- enable "baseurl" with value BASEREPO in epel.repo
+This is explained a [bit more here](BUILDARGS.md).
 
 #### Some nice tests:
 
