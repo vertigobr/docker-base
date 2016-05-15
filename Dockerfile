@@ -22,4 +22,10 @@ RUN echo "Building..." && \
     yum -y install pwgen && \
     yum clean all
 
-# RUN yum -y install pwgen && yum clean all
+RUN yum -y install vim git && \
+    yum clean all && \
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim && \
+    wget https://git.vertigo.com.br/vertigobr/osx-shell/raw/master/vimrc -q -O ~/.vimrc
+RUN echo | echo | vim +PluginInstall +PluginUpdate +qall &>/dev/null && \
+    alias vi=vim
+
