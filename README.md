@@ -1,5 +1,7 @@
 # docker-base
 
+[![Docker Hub](http://dockeri.co/image/vertigo/docker-base)]()
+
 Docker base image for Vertigo images (centos-based, at least for now)
 
 This is a base CentOS 7 image with a few perks. This is based on
