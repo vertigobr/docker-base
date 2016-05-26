@@ -6,6 +6,5 @@ Git MIRROR:
   script:
     - ls -la
     - git config -l
-    - git remote set-url --push origin https://$GITHUB_DEPLOY_USER:$GITHUB_DEPLOY_PASSWORD@github.com/vertigobr/docker-base.git
-    - git push --tags origin master
+    - git push https://$GITHUB_DEPLOY_USER:$GITHUB_DEPLOY_PASSWORD@github.com/vertigobr/docker-base.git master
 
