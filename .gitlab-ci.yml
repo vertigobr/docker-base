@@ -4,5 +4,6 @@ stages:
 Git MIRROR:
   stage: deploy
   script:
+    - ls -la
     - git push --mirror https://$GITHUB_DEPLOY_USER:$GITHUB_DEPLOY_PASSWORD@github.com/vertigobr/docker-base.git
 
