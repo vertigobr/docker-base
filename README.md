@@ -22,8 +22,7 @@ a few extra packages:
 ### What is it for?
 
 Most images we find at the public Docker Hub are Ubuntu or Alpine-based.
-Nothing against them, but Redhat customers feel more at home
-with CentOS.
+Nothing against them, but Redhat customers feel more at home with CentOS.
 
 ### Useful scripts
 
@@ -49,3 +48,5 @@ Show files (ls):
 
     ./runbash.sh ls -l /opt/
     total 0
+
+
