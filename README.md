@@ -1,8 +1,8 @@
 # docker-base
 
-[![Docker Hub](http://dockeri.co/image/vertigo/docker-base)]()
-
 Docker base image for Vertigo images (centos-based, at least for now)
+
+[![](https://imagelayers.io/badge/vertigo/docker-base:latest.svg)](https://imagelayers.io/?images=vertigo/docker-base:latest 'Get your own badge on imagelayers.io')
 
 This is a base CentOS 7 image with a few perks. This is based on
 the official CentOS 7 base image.
