@@ -34,7 +34,7 @@ If you want to build this image yourself you can set the variables BASEREPO and 
 
 This is explained a [bit more here](BUILDARGS.md).
 
-#### Some nice tests:
+#### Some simple tests:
 
 Show CentOS version:
 
