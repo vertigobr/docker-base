@@ -6,5 +6,5 @@ Git MIRROR:
   script:
     - ls -la
     - git fetch --all
-    - git push https://$GITHUB_DEPLOY_USER:$GITHUB_DEPLOY_PASSWORD@github.com/vertigobr/docker-base.git master
+    - git push --all https://$GITHUB_DEPLOY_USER:$GITHUB_DEPLOY_PASSWORD@github.com/vertigobr/docker-base.git
 
