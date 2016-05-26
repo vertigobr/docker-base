@@ -10,7 +10,7 @@ ARG EPELREPO
 
 ADD src/* /opt/
 
-RUN echo "Building..." && \
+RUN echo "Building docker-base..." && \
     cp /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.original && \
     chmod +x /opt/setbaserepo.sh && \
     sh /opt/setbaserepo.sh && \
