@@ -28,4 +28,3 @@ RUN echo "Building docker-base..." && \
 #    wget https://git.vertigo.com.br/vertigobr/osx-shell/raw/master/vimrc -q -O ~/.vimrc
 #RUN echo | echo | vim +PluginInstall +PluginUpdate +qall &>/dev/null && \
 #    alias vi=vim
-
